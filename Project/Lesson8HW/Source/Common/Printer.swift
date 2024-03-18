@@ -25,7 +25,7 @@ class Printer {
             target: self,
             selector: #selector(timerAction),
             userInfo: nil,
-            repeats: true
+            repeats: false
         )
     }
     
