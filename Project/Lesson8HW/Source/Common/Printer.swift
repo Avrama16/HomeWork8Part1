@@ -14,7 +14,7 @@ class Printer {
     var redViewController: RedViewController?
     
     private var timer: Timer?
-    private var seconds: Int = 0
+    private var seconds = Int.random(in: 8..<80)
     
     func startPrinting() {
         
