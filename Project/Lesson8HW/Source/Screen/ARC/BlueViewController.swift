@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BlueViewController: UIViewController {
+class BlueViewController: UIViewController, PrinterDelegate {
     
     var printer: Printer!
     
@@ -15,6 +15,10 @@ class BlueViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setup()
+    }
+    
+    deinit {
+        printer?.stop()
     }
     
     func textToPrint() -> String {
@@ -42,7 +46,7 @@ private extension BlueViewController {
     func setup() {
         
         printer = Printer()
-        printer.blueViewController = self
+        printer.delegate = self
         
         printer.startPrinting()
     }

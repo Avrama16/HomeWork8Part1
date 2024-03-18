@@ -17,6 +17,13 @@ class YellowViewController: UIViewController {
         setup()
     }
     
+    deinit {
+        printer?.stop()
+    }
+}
+
+extension YellowViewController: PrinterDelegate {
+    
     func textToPrint() -> String {
         return "🚖 - жовте таксі у дорозі"
     }
@@ -42,7 +49,7 @@ private extension YellowViewController {
     func setup() {
         
         printer = Printer()
-        printer.yellowViewController = self
+        printer.delegate = self
         
         printer.startPrinting()
     }
